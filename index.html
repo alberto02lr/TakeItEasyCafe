@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TakeItEasy Cafe - Aprende Inglés sin Darte Cuenta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Paleta de colores */
+        :root {
+            --verde-oscuro: #1a4d2e;
+            --verde-claro: #2d6a4f;
+            --crema: #f5f1e8;
+            --blanco-roto: #faf8f3;
+            --marron: #6b5344;
+            --marron-claro: #9a8c7e;
+            --gris-oscuro: #3a3a3a;
+        }
+
+        /* Tipografía */
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--gris-oscuro);
+            background-color: var(--blanco-roto);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', 'Garamond', serif;
+            color: var(--verde-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--blanco-roto);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(26, 77, 46, 0.1);
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-oscuro);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde-oscuro);
+        }
+
+        .cta-button {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--verde-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(26, 77, 46, 0.6), rgba(26, 77, 46, 0.6)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f1e8" width="1200" height="800"/><circle cx="200" cy="150" r="80" fill="%236b5344" opacity="0.1"/><circle cx="1000" cy="500" r="120" fill="%231a4d2e" opacity="0.1"/><rect x="300" y="300" width="600" height="400" rx="20" fill="%23f5f1e8" opacity="0.05" stroke="%236b5344" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 5%;
+            color: var(--crema);
+        }
+
+        .hero-content h1 {
+            color: var(--crema);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: var(--crema);
+        }
+
+        .hero-cta {
+            background-color: var(--crema);
+            color: var(--verde-oscuro);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sección Quiénes Somos */
+        .about {
+            background-color: var(--crema);
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--gris-oscuro);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--marron-claro), var(--marron));
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sección Quedadas */
+        .services {
+            padding: 6rem 5%;
+            background-color: var(--blanco-roto);
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--crema);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--marron);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--verde-oscuro);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Sección Exámenes */
+        .exams {
+            background: linear-gradient(135deg, var(--verde-oscuro), var(--verde-claro));
+            padding: 6rem 5%;
+            text-align: center;
+            color: var(--crema);
+        }
+
+        .exams h2,
+        .exams p {
+            color: var(--crema);
+        }
+
+        .exams p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .exams .cta-button {
+            background-color: var(--crema);
+            color: var(--verde-oscuro);
+        }
+
+        .exams .cta-button:hover {
+            background-color: var(--marron-claro);
+            color: var(--crema);
+        }
+
+        /* Sección Blog */
+        .blog {
+            padding: 6rem 5%;
+            background-color: var(--blanco-roto);
+        }
+
+        .blog h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background-color: var(--crema);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--marron-claro), var(--marron));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            border-bottom: 3px solid var(--marron);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: var(--marron);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .blog-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-link:hover {
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--crema);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--crema);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-4px);
+            color: var(--marron-claro);
+        }
+
+        .footer-address {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: rgba(245, 241, 232, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .about,
+            .services,
+            .blog {
+                padding: 4rem 3%;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+                font-size: 4rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .exams {
+                padding: 4rem 3%;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 3%;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-cta {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .services-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="#" class="logo">TakeItEasy Cafe</a>
+        <ul class="nav-links">
+            <li><a href="#about">Quiénes Somos</a></li>
+            <li><a href="#services">Quedadas</a></li>
+            <li><a href="#exams">Exámenes</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+        <button class="cta-button">Prueba de Nivel</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Aprende inglés sin darte cuenta.</h1>
+            <p>Olvídate del boli, el cuaderno y el estrés. En TakeItEasy Cafe te sumergimos en el idioma a través del cine, la música y buenas charlas con nativos. Tu única tarea es pedir tu café favorito y disfrutar.</p>
+            <button class="hero-cta">👉 Haz tu prueba de nivel gratuita (¡solo toma 5 minutos!)</button>
+        </div>
+    </section>
+
+    <!-- Sección Quiénes Somos -->
+    <section class="about" id="about">
+        <div class="about-text">
+            <h2>No somos una academia.<br>Somos tu inmersión lingüística diaria.</h2>
+            <p>Creemos que el inglés no se aprende sentado frente a una pizarra, sino viviéndolo. Nacimos para crear un refugio (con mucho aroma a café y rodeado de libros) donde equivocarse al hablar no importa.</p>
+            <p>Nuestro equipo de profesores nativos está aquí para guiarte de forma dinámica: charlando, jugando y compartiendo aficiones. Porque cuando haces lo que te gusta, el idioma fluye solo.</p>
+        </div>
+        <div class="about-image">☕📚</div>
+    </section>
+
+    <!-- Sección Nuestras Quedadas -->
+    <section class="services" id="services">
+        <h2>Nuestras Quedadas</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎲</div>
+                <h3>The Boardgames Meeting</h3>
+                <p>Pon a prueba tu agilidad mental y tu vocabulario de supervivencia en nuestras tardes de juegos de mesa. Risas aseguradas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Spill The Tea</h3>
+                <p>Conversaciones del día a día con nativos para que te acostumbres a sus acentos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎵</div>
+                <h3>Lyrics & Chill</h3>
+                <p>¿Qué dice realmente tu canción favorita? Analizamos letras, descubrimos phrasal verbs ocultos y mejoramos la pronunciación.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📖</div>
+                <h3>The Poets Department</h3>
+                <p>Préstamo de libros en inglés para todos los niveles y debates relajados sobre nuestras lecturas favoritas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Exámenes Oficiales -->
+    <section class="exams" id="exams">
+        <h2>¿Necesitas certificar tu nivel? Take it easy.</h2>
+        <p>Preparar un examen oficial no tiene que ser una pesadilla. Tenemos acuerdos oficiales y te preparamos para arrasar en tu examen de Cambridge con simulacros reales, pero sin perder nuestra esencia dinámica.</p>
+        <button class="cta-button">📅 Consultar próximas fechas</button>
+    </section>
+
+    <!-- Sección Blog de Inmersión -->
+    <section class="blog" id="blog">
+        <h2>Blog de Inmersión</h2>
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image">🎲</div>
+                <div class="blog-content">
+                    <p class="blog-date">21 de marzo de 2026</p>
+                    <h3>5 juegos de mesa que mejorarán tu 'speaking' más rápido que un libro de texto</h3>
+                    <p>Descubre cómo integrar juegos de mesa en tu aprendizaje del inglés de una forma completamente natural y divertida...</p>
+                    <a href="#" class="blog-link">Leer más →</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-image">🎬</div>
+                <div class="blog-content">
+                    <p class="blog-date">15 de marzo de 2026</p>
+                    <h3>El método Tarantino: Cómo usar el cine para aprender el 'slang' que nadie te enseña</h3>
+                    <p>Las películas son una de las mejores herramientas para absorber el inglés real y cotidiano. Te contamos cómo...</p>
+                    <a href="#" class="blog-link">Leer más →</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-image">🎯</div>
+                <div class="blog-content">
+                    <p class="blog-date">10 de marzo de 2026</p>
+                    <h3>Síndrome del impostor bilingüe: Por qué te quedas en blanco al hablar y cómo superarlo</h3>
+                    <p>Hablas bien, pero tienes miedo de cometer errores. Entendemos por qué sucede y cómo superarlo definitivamente...</p>
+                    <a href="#" class="blog-link">Leer más →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">TakeItEasy Cafe</div>
+        <div class="social-links">
+            <a href="#" title="Instagram">📱</a>
+            <a href="#" title="TikTok">🎵</a>
+        </div>
+        <div class="footer-address">
+            <p>📍 En el corazón de tu ciudad</p>
+            <p>¿Preguntas? Contáctanos en cualquier momento</p>
+        </div>
+    </footer>
+</body>
+</html>
