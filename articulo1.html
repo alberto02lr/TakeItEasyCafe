@@ -1,1 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 juegos de mesa que mejorarán tu 'Speaking' - TakeItEasy Cafe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        /* Paleta de colores */
+        :root {
+            --verde-oscuro: #1a4d2e;
+            --verde-claro: #2d6a4f;
+            --crema: #f5f1e8;
+            --blanco-roto: #faf8f3;
+            --marron: #6b5344;
+            --marron-claro: #9a8c7e;
+            --gris-oscuro: #3a3a3a;
+        }
+
+        /* Tipografía */
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--gris-oscuro);
+            background-color: var(--blanco-roto);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', 'Garamond', serif;
+            color: var(--verde-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--blanco-roto);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(26, 77, 46, 0.1);
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-oscuro);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde-oscuro);
+        }
+
+        .cta-button {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--verde-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--crema);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--marron);
+            margin-bottom: 2rem;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--verde-claro);
+            padding: 4rem 5%;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h3 {
+            color: var(--crema);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: var(--crema);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .cta-button-large {
+            background-color: var(--crema);
+            color: var(--verde-oscuro);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background-color: var(--crema);
+            padding: 4rem 5%;
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+
+        .comments-section h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--verde-oscuro);
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            padding: 1rem;
+            border: 1px solid var(--marron-claro);
+            border-radius: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            background-color: var(--blanco-roto);
+        }
+
+        .comment-form input:focus,
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: var(--verde-oscuro);
+            box-shadow: 0 0 5px rgba(26, 77, 46, 0.3);
+        }
+
+        .comment-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .comment-form button {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .comment-form button:hover {
+            background-color: var(--verde-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--crema);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--crema);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-4px);
+            color: var(--marron-claro);
+        }
+
+        .footer-address {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: rgba(245, 241, 232, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html" class="logo">TakeItEasy Cafe</a>
+        <ul class="nav-links">
+            <li><a href="index.html#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="index.html#quedadas">Quedadas</a></li>
+            <li><a href="index.html#examenes">Exámenes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <a href="index.html#prueba-nivel" class="cta-button">Prueba de Nivel</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>5 juegos de mesa que mejorarán tu 'Speaking' más rápido que un libro de texto</h1>
+        <p class="subtitle">Por el equipo de TakeItEasy Cafe | Categoría: Juegos & Ocio</p>
+        <img src="https://via.placeholder.com/800x400?text=Board+Games+and+Coffee" alt="Personas jugando a un juego de mesa con tazas de café">
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <h2>1. Taboo</h2>
+        <p>Taboo es un juego de palabras en el que los jugadores deben describir conceptos sin usar ciertas palabras prohibidas. Este juego fomenta la creatividad verbal y la rapidez mental, ayudando a los estudiantes de inglés a expandir su vocabulario y mejorar su capacidad para expresarse de manera indirecta. Al jugar, practicas sinónimos y perifrasis, habilidades esenciales para un speaking fluido.</p>
+
+        <h2>2. Catan</h2>
+        <p>Settlers of Catan es un juego de estrategia donde los jugadores negocian recursos y construyen asentamientos. Las negociaciones constantes requieren explicar tus necesidades y ofertas en inglés, mejorando el speaking en contextos prácticos. Es ideal para practicar frases como "I need wood for my settlement" o "Can we trade?", simulando conversaciones reales.</p>
+
+        <h2>3. Dixit</h2>
+        <p>Dixit es un juego de cartas ilustradas donde describes imágenes de manera poética. Este juego estimula la imaginación y el uso de adjetivos, metáforas y descripciones creativas. Al explicar tus cartas, desarrollas un speaking más expresivo y artístico, alejándote de frases mecánicas y acercándote a un inglés más natural y descriptivo.</p>
+
+        <h2>4. Heads Up!</h2>
+        <p>Heads Up! es un juego de adivinanzas donde usas pistas para que tu compañero adivine palabras o frases. La presión del tiempo acelera el habla y mejora la pronunciación. Es perfecto para practicar la articulación rápida y clara, además de aprender vocabulario nuevo en categorías variadas como celebridades, acciones o conceptos abstractos.</p>
+
+        <h2>5. Bananagrams</h2>
+        <p>Bananagrams es una versión rápida del Scrabble donde formas palabras con letras distribuidas. Al jugar, discutes estrategias y explicas tus jugadas, practicando vocabulario y gramática. Es excelente para mejorar el spelling y la formación de palabras, mientras que las conversaciones sobre el juego refuerzan el speaking conversacional.</p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h3>¿Te animas a probarlo?</h3>
+        <p>Ven a nuestra próxima tarde de Board Games & Coffee. 👉</p>
+        <a href="index.html#prueba-nivel" class="cta-button-large">Haz nuestra prueba de nivel rápida</a>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <h3>Deja tu comentario</h3>
+        <form class="comment-form">
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu email" required>
+            <textarea placeholder="Escribe tu comentario aquí..." required></textarea>
+            <button type="submit">Enviar comentario</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">TakeItEasy Cafe</div>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="footer-address">
+            Dirección: Calle Ficticia 123, Ciudad<br>
+            Teléfono: +34 123 456 789<br>
+            Email: info@takeiteasycafe.com
+        </div>
+    </footer>
+</body>
+</html>
