@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El método Tarantino: Cómo usar el cine para aprender el 'slang' que nadie te enseña - TakeItEasy Cafe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Paleta de colores */
+        :root {
+            --verde-oscuro: #1a4d2e;
+            --verde-claro: #2d6a4f;
+            --crema: #f5f1e8;
+            --blanco-roto: #faf8f3;
+            --marron: #6b5344;
+            --marron-claro: #9a8c7e;
+            --gris-oscuro: #3a3a3a;
+        }
+
+        /* Tipografía */
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--gris-oscuro);
+            background-color: var(--blanco-roto);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', 'Garamond', serif;
+            color: var(--verde-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--blanco-roto);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(26, 77, 46, 0.1);
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-oscuro);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde-oscuro);
+        }
+
+        .cta-button {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--verde-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--crema);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--marron);
+            margin-bottom: 2rem;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--verde-claro);
+            padding: 4rem 5%;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h3 {
+            color: var(--crema);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: var(--crema);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .cta-button-large {
+            background-color: var(--crema);
+            color: var(--verde-oscuro);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background-color: var(--crema);
+            padding: 4rem 5%;
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+
+        .comments-section h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--verde-oscuro);
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            padding: 1rem;
+            border: 1px solid var(--marron-claro);
+            border-radius: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            background-color: var(--blanco-roto);
+        }
+
+        .comment-form input:focus,
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: var(--verde-oscuro);
+            box-shadow: 0 0 5px rgba(26, 77, 46, 0.3);
+        }
+
+        .comment-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .comment-form button {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .comment-form button:hover {
+            background-color: var(--verde-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: var(--blanco-roto);
+            margin: 15% auto;
+            padding: 2rem;
+            border: 1px solid var(--marron-claro);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: var(--gris-oscuro);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--verde-oscuro);
+            text-decoration: none;
+        }
+
+        .reservation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .reservation-form input {
+            padding: 1rem;
+            border: 1px solid var(--marron-claro);
+            border-radius: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            background-color: var(--crema);
+        }
+
+        .reservation-form input:focus {
+            outline: none;
+            border-color: var(--verde-oscuro);
+            box-shadow: 0 0 5px rgba(26, 77, 46, 0.3);
+        }
+
+        .reservation-form button {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .reservation-form button:hover {
+            background-color: var(--verde-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--crema);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--crema);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-4px);
+            color: var(--marron-claro);
+        }
+
+        .footer-address {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: rgba(245, 241, 232, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html" class="logo">TakeItEasy Cafe</a>
+        <ul class="nav-links">
+            <li><a href="index.html#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="index.html#quedadas">Quedadas</a></li>
+            <li><a href="index.html#examenes">Exámenes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <a href="index.html#prueba-nivel" class="cta-button">Prueba de Nivel</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>El método Tarantino: Cómo usar el cine para aprender el 'slang' que nadie te enseña</h1>
+        <p class="subtitle">Por el equipo de TakeItEasy Cafe | Categoría: Cine Club</p>
+        <img src="https://via.placeholder.com/800x400?text=Movies+and+Coffee" alt="Personas viendo una película con tazas de café">
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <p>Seamos sinceros: nadie en las calles de Nueva York o Londres habla como los audios del Student's Book. Si quieres entender el inglés real, el de la calle, las bromas y el sarcasmo, tu mejor profesor no lleva traje, lleva una claqueta de cine.</p>
+
+        <p>En nuestro Movie Club aplicamos lo que nos gusta llamar "El método Tarantino" (o Nolan, o Gerwig, ¡tú eliges el director!). Así es como puedes usar tus películas favoritas para absorber el idioma:</p>
+
+        <h2>Paso 1: VOSE innegociable</h2>
+        <p>Olvídate de los doblajes. Empieza con audio en inglés y subtítulos en inglés. Esto conecta lo que escuchas con lo que lees, ayudándote a descifrar acentos cerrados o diálogos rápidos.</p>
+
+        <h2>Paso 2: La técnica del 'Shadowing'</h2>
+        <p>Cuando escuches una frase icónica o una expresión que suene genial, pon pausa y repítela en voz alta intentando imitar la entonación y la actitud del actor. Te ayudará a perder la vergüenza y a mejorar tu pronunciación.</p>
+
+        <h2>Paso 3: Caza el 'Slang'</h2>
+        <p>Las películas están llenas de idioms y jerga que no vienen en el diccionario. Anota en tu móvil esa palabra rara que acaban de decir y busca su significado en el contexto de la escena.</p>
+
+        <h2>Paso 4: El debate posterior</h2>
+        <p>De nada sirve ver la película si luego no hablas de ella. Explicar por qué el final te pareció increíble o por qué odiaste al protagonista es el mejor ejercicio de speaking que existe.</p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h3>Pasa a la acción</h3>
+        <p>Ver pelis en el sofá está muy bien, pero destriparlas con un buen café y en buena compañía es otro nivel. Únete a nuestro próximo Movie Club en TakeItEasy. Vemos la peli, comentamos la jugada y aprendemos el slang real. 👉</p>
+        <button class="cta-button-large" onclick="openModal()">Consulta la cartelera de este mes y reserva tu sitio</button>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <h3>Deja tu comentario</h3>
+        <form class="comment-form">
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu email" required>
+            <textarea placeholder="Escribe tu comentario aquí..." required></textarea>
+            <button type="submit">Enviar comentario</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">TakeItEasy Cafe</div>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="footer-address">
+            Dirección: Calle Ficticia 123, Ciudad<br>
+            Teléfono: +34 123 456 789<br>
+            Email: info@takeiteasycafe.com
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Reserva tu plaza</h3>
+            <form id="reservationForm" class="reservation-form">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu email" required>
+                <input type="tel" placeholder="Tu teléfono" required>
+                <input type="date" placeholder="Selecciona fecha" required>
+                <button type="submit">Reservar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal() {
+            document.getElementById('reservationModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('reservationModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('reservationModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('reservationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('¡Reserva realizada! Te contactaremos pronto.');
+            closeModal();
+            this.reset();
+        });
+    </script>
+</body>
+</html>
