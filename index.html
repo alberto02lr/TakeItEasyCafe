@@ -659,21 +659,19 @@
 */
 
 /* Limitamos el ancho de la sección principal del blog y la centramos */
-.blog {
-    max-width: 1200px; /* Tu ancho máximo deseado */
-    margin: 0 auto; /* Centra la sección en la pantalla */
-    padding: 60px 20px; /* Espacio arriba/abajo y a los lados */
-    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+.blog-image {
+    width: 400px; /* El ancho que me comentaste */
+    height: 250px; /* El alto que me comentaste */
+    overflow: hidden; /* Esto asegura que si la foto sobresale, se recorte y no rompa el diseño */
+    border-radius: 12px 12px 0 0; /* Si quieres que las esquinas de arriba sean redonditas */
 }
 
-/* 2. AJUSTE ESPECÍFICO DE LAS FOTOS DEL BLOG (¡Súper importante!) */
-/* Para que las fotos nuevas queden perfectas dentro de sus tarjetas */
+/* 2. ESTA ES TU FOTO (La imagen dentro del marco) */
 .blog-image img {
-    width: 100%; /* La imagen ocupa todo el ancho de su tarjeta */
-    height: 220px; /* Ajusta este valor si las quieres más altas o bajas */
-    object-fit: cover; /* ¡Aquí está la magia! Adapta la imagen sin deformarla ni estirarla */
-    display: block; /* Elimina espacios vacíos debajo de la imagen */
-    border-radius: 12px 12px 0 0; /* Bordes redondeados solo en las esquinas superiores */
+    width: 100%; /* Le decimos que ocupe todo el ancho del marco (los 400px) */
+    height: 100%; /* Le decimos que ocupe todo el alto del marco (los 250px) */
+    object-fit: cover; /* ¡LA MAGIA! Rellena el marco perfectamente sin deformar a la gente */
+    display: block; 
 }
 
 /* 3. GRID DEL BLOG (Solo si no lo tienes ya definido) */
