@@ -652,6 +652,38 @@
   border-radius: 6px;
   box-sizing: border-box;
 }
+
+        /* ESTE CSS SE APLICA ÚNICAMENTE A LA SECCIÓN CON LA CLASE "blog".
+  El resto de secciones ("services", "exams", etc.) no se verán afectadas
+  y mantendrán sus estilos propios.
+*/
+
+/* Limitamos el ancho de la sección principal del blog y la centramos */
+.blog {
+    max-width: 1200px; /* Tu ancho máximo deseado */
+    margin: 0 auto; /* Centra la sección en la pantalla */
+    padding: 60px 20px; /* Espacio arriba/abajo y a los lados */
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+}
+
+/* 2. AJUSTE ESPECÍFICO DE LAS FOTOS DEL BLOG (¡Súper importante!) */
+/* Para que las fotos nuevas queden perfectas dentro de sus tarjetas */
+.blog-image img {
+    width: 100%; /* La imagen ocupa todo el ancho de su tarjeta */
+    height: 220px; /* Ajusta este valor si las quieres más altas o bajas */
+    object-fit: cover; /* ¡Aquí está la magia! Adapta la imagen sin deformarla ni estirarla */
+    display: block; /* Elimina espacios vacíos debajo de la imagen */
+    border-radius: 12px 12px 0 0; /* Bordes redondeados solo en las esquinas superiores */
+}
+
+/* 3. GRID DEL BLOG (Solo si no lo tienes ya definido) */
+/* Para que las tarjetas se pongan una al lado de la otra en pantallas grandes */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 30px;
+}
     </style>
 </head>
 <body>
@@ -781,7 +813,9 @@
         <h2>Blog de Inmersión</h2>
         <div class="blog-grid">
             <article class="blog-card">
-                <div class="blog-image">🎲</div>
+                <div class="blog-image">
+                    <img src="blogphoto1.png" alt="Grupo dinámico jugando a Catan y riendo en una mesa de madera cálida de TakeItEasy Cafe">
+                </div>
                 <div class="blog-content">
                     <p class="blog-date">21 de marzo de 2026</p>
                     <h3>5 juegos de mesa que mejorarán tu 'speaking' más rápido que un libro de texto</h3>
@@ -790,7 +824,9 @@
                 </div>
             </article>
             <article class="blog-card">
-                <div class="blog-image">🎬</div>
+                <div class="blog-image">
+                    <img src="cinema.png" alt="Primer plano cinematográfico de dos jóvenes con chaquetas de cuero conversando intensamente sobre café en TakeItEasy Cafe, con iluminación dramática">
+                </div>
                 <div class="blog-content">
                     <p class="blog-date">15 de marzo de 2026</p>
                     <h3>El método Tarantino: Cómo usar el cine para aprender el 'slang' que nadie te enseña</h3>
@@ -799,7 +835,9 @@
                 </div>
             </article>
             <article class="blog-card">
-                <div class="blog-image">🎯</div>
+                <div class="blog-image">
+                    <img src="frustration.png" alt="Una joven mujer sonríe con alivio y confianza mientras habla en un grupo acogedor en TakeItEasy Cafe, sosteniendo una taza de cerámica">
+                </div>
                 <div class="blog-content">
                     <p class="blog-date">10 de marzo de 2026</p>
                     <h3>Síndrome del impostor bilingüe: Por qué te quedas en blanco al hablar y cómo superarlo</h3>
