@@ -510,6 +510,89 @@
         html {
             scroll-behavior: smooth;
         }
+
+/* --- Mejoras para la sección de Nuestras Quedadas (Servicios) --- */
+
+/* 1. Fondo sutil para la sección entera */
+#services {
+    background-color: var(--crema-oscura); /* Beige muy suave f0e6d6 */
+    padding: 6rem 5%;
+}
+
+/* 2. Mejorar las tarjetas individuales */
+.service-card {
+    background-color: var(--crema);
+    /* TRUCO PROFESIONAL: Sutil borde marrón como madera */
+    border: 2px solid var(--marron-claro); 
+    border-radius: 15px;
+    padding: 0; /* Quitamos padding aquí para que la imagen llene el borde superior */
+    text-align: center;
+    overflow: hidden; /* Importante para que la imagen respete los bordes redondeados superiores */
+    
+    /* TRUCO DE PROFUNDIDAD: Sombra sutil pero elegante */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    
+    /* TRUCO DE MOVIMIENTO: Prepara la tarjeta para el efecto hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Asegurar ancho completo en el grid */
+}
+
+/* 3. El efecto mágico (Hover): La tarjeta se levanta al pasar el ratón */
+.service-card:hover {
+    transform: translateY(-8px); /* La tarjeta sube un poco */
+    /* La sombra se hace más profunda para dar sensación de altura */
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-color: var(--marron); /* El borde se vuelve del color marrón oscuro de la marca */
+}
+
+/* 4. Contenedor para la 'Postal Cultural' (La Imagen) */
+.service-image-container {
+    width: 100%;
+    height: 180px; /* Altura perfecta para las fotos */
+    overflow: hidden;
+    border-bottom: 2px solid var(--marron-claro); /* Sutil separación entre foto y texto */
+}
+
+/* 5. El estilo de la 'Postal Cultural' */
+.service-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ¡LA MAGIA! Hace que la imagen llene el hueco sin deformarse */
+    transition: transform 0.5s ease; /* Pequeña animación para la foto al hacer hover */
+}
+
+/* Animación sutil de zoom en la foto cuando pasas el ratón por la tarjeta */
+.service-card:hover .service-image-container img {
+    transform: scale(1.05); /* La foto se agranda un 5% */
+}
+
+/* 6. Contenedor de texto con padding interior */
+.service-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 7. Mejorar los títulos (H3) de las tarjetas */
+.service-card h3 {
+    color: var(--verde); /* Asegurar que sea el verde oscuro de tu marca */
+    font-size: 1.5rem;
+    margin-top: 0; /* Quitamos margin top extra */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* 8. Mejorar el texto descriptivo (p) */
+.service-card p {
+    color: var(--texto-oscuro);
+    font-size: 1rem;
+    line-height: 1.6;
+}
     </style>
 </head>
 <body>
@@ -550,31 +633,53 @@
     </section>
 
     <!-- Sección Nuestras Quedadas -->
-    <section class="services" id="services">
-        <h2>Nuestras Quedadas</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎲</div>
-                <h3>The Boardgames Meeting</h3>
+<section class="services" id="services">
+    <h2>Nuestras Quedadas</h2>
+    
+    <div class="services-grid">
+        
+        <article class="service-card">
+            <div class="service-image-container">
+                <img src="quedada_juegos.png" alt="Amigos jugando y riendo con Catan en TakeItEasy Cafe">
+            </div>
+            <div class="service-content">
+                <h3>The Boardgames<br>Meeting</h3>
                 <p>Pon a prueba tu agilidad mental y tu vocabulario de supervivencia en nuestras tardes de juegos de mesa. Risas aseguradas.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🎬</div>
-                <h3>Spill The Tea</h3>
+        </article>
+
+        <article class="service-card">
+            <div class="service-image-container">
+                <img src="quedada_spill_tea.png" alt="Laura riendo animatedly contándole un secreto a un nativo en TakeItEasy Cafe">
+            </div>
+            <div class="service-content">
+                <h3>Spill<br>The Tea</h3>
                 <p>Conversaciones del día a día con nativos para que te acostumbres a sus acentos.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🎵</div>
-                <h3>Lyrics & Chill</h3>
+        </article>
+
+        <article class="service-card">
+            <div class="service-image-container">
+                <img src="quedada_lyrics.png" alt="Cuaderno con letras de canciones en inglés con creative handwriting en TakeItEasy Cafe">
+            </div>
+            <div class="service-content">
+                <h3>Lyrics<br>& Chill</h3>
                 <p>¿Qué dice realmente tu canción favorita? Analizamos letras, descubrimos phrasal verbs ocultos y mejoramos la pronunciación.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">📖</div>
-                <h3>The Poets Department</h3>
+        </article>
+
+        <article class="service-card">
+            <div class="service-image-container">
+                <img src="quedada_poets.png" alt="Laura leyendo poesía con calma en TakeItEasy Cafe">
+            </div>
+            <div class="service-content">
+                <h3>The Poets<br>Department</h3>
                 <p>Préstamo de libros en inglés para todos los niveles y debates relajados sobre nuestras lecturas favoritas.</p>
             </div>
-        </div>
-    </section>
+        </article>
+
+    </div>
+</section>
 
     <!-- Sección Exámenes Oficiales -->
     <section class="exams" id="exams">
