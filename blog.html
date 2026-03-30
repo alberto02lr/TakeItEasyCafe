@@ -11,6 +11,24 @@
             box-sizing: border-box;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-weight: bold;
+        }
+
         /* Paleta de colores */
         :root {
             --verde-oscuro: #1a4d2e;
@@ -395,7 +413,10 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <a href="index.html" class="logo">TakeItEasy Cafe</a>
+        <a href="index.html" class="logo-container">
+    <img src="logo.png" alt="Logo TakeItEasy" class="logo-img">
+    <span class="logo-text">TakeItEasy Cafe</span>
+</a>
         <ul class="nav-links">
             <li><a href="index.html#about">Quiénes Somos</a></li>
             <li><a href="index.html#services">Quedadas</a></li>
