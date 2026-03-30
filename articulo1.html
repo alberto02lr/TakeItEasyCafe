@@ -109,27 +109,40 @@
         }
 
         /* Hero Section */
+   /* Hero Section (Actualizado con imagen de fondo y capa verde) */
         .hero {
-            background-color: var(--crema);
-            padding: 4rem 5%;
+            /* 1. Añadimos la imagen de fondo y el gradiente superpuesto */
+            background-image: 
+                linear-gradient(
+                    rgba(26, 77, 46, 0.7), /* Este es tu var(--verde-oscuro) con 70% de opacidad */
+                    rgba(26, 77, 46, 0.7)
+                ),
+                url('blogphoto1.png'); /* Ruta a tu imagen */
+            
+            /* 2. Ajustamos cómo se comporta el fondo */
+            background-size: cover; /* ¡Esto es como el object-fit: cover! Rellena todo */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat;
+            
+            /* 3. Ajustamos el espaciado del contenedor */
+            padding: 8rem 5%; /* Más padding arriba y abajo para que se vea más la foto */
             text-align: center;
+            
+            /* Opcional: Si quieres que el texto destaque sobre el fondo oscuro */
+            color: var(--crema); 
         }
 
         .hero h1 {
             margin-bottom: 1rem;
+            color: var(--crema); /* Cambiamos el color a crema para que se lea sobre lo oscuro */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Una sombrita sutil para que resalte más */
         }
 
         .hero .subtitle {
             font-size: 1.2rem;
-            color: var(--marron);
+            color: var(--blanco-roto); /* Cambiamos a claro */
             margin-bottom: 2rem;
-        }
-
-        .hero img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         /* Article Content */
@@ -395,7 +408,6 @@
     <section class="hero">
         <h1>5 juegos de mesa que mejorarán tu 'Speaking' más rápido que un libro de texto</h1>
         <p class="subtitle">Por el equipo de TakeItEasy Cafe | Categoría: Juegos & Ocio</p>
-        <img src="https://via.placeholder.com/800x400?text=Board+Games+and+Coffee" alt="Personas jugando a un juego de mesa con tazas de café">
     </section>
 
     <!-- Article Content -->
