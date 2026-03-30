@@ -822,5 +822,44 @@
             <p>¿Preguntas? Contáctanos en cualquier momento</p>
         </div>
     </footer>
+
+<script>
+    // Obtener los elementos
+const btnAbrir = document.getElementById('btn-abrir-reserva');
+const cajaFormulario = document.getElementById('caja-formulario');
+const formReserva = document.getElementById('form-reserva');
+
+// Mostrar/Ocultar el formulario al hacer clic
+btnAbrir.addEventListener('click', () => {
+  if (cajaFormulario.classList.contains('oculto')) {
+    cajaFormulario.classList.remove('oculto');
+    btnAbrir.innerText = "Cerrar formulario ❌";
+    btnAbrir.style.backgroundColor = "#EF4444"; // Cambia a rojo
+  } else {
+    cajaFormulario.classList.add('oculto');
+    btnAbrir.innerText = "¡Reservar mi plaza!";
+    btnAbrir.style.backgroundColor = "#4F46E5"; // Vuelve al color original
+  }
+});
+
+// Manejar el envío del formulario
+formReserva.addEventListener('submit', (evento) => {
+  evento.preventDefault(); // Evita que la página recargue
+  
+  const nombre = document.getElementById('nombre').value;
+  const quedada = document.getElementById('quedada').options[document.getElementById('quedada').selectedIndex].text;
+
+  // Mensaje de éxito (puedes cambiarlo por una pantalla bonita)
+  alert(`¡Perfecto, ${nombre}! 🎉\nTu reserva para la "${quedada}" ha sido confirmada.`);
+  
+  // Limpiar y cerrar formulario
+  formReserva.reset();
+  cajaFormulario.classList.add('oculto');
+  btnAbrir.innerText = "¡Reservar mi plaza!";
+  btnAbrir.style.backgroundColor = "#4F46E5";
+});
+</script>
+
+    
 </body>
 </html>
