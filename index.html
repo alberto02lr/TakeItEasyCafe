@@ -205,16 +205,20 @@
 
         .about-image {
             width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, var(--marron-claro), var(--marron));
+            height: 400px; /* Ajústalo a 400px o 500px si prefieres */
+            background: none; /* Quitamos el degradado */
             border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 6rem;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Importante para que la imagen respete los bordes redondeados */
         }
 
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ¡Esta es la magia! Hace que la imagen llene el hueco sin deformarse */
+            border-radius: inherit; /* Hereda los bordes redondeados del contenedor */
+        }
+        
         /* Sección Quedadas */
         .services {
             padding: 6rem 5%;
