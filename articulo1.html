@@ -10,24 +10,30 @@
             padding: 0;
             box-sizing: border-box;
         }
-.logo-container {
+        
+/* --- CONFIGURACIÓN DEL LOGO --- */
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: inherit;
         }
 
         .logo-img {
             height: 45px;
-            width: auto;
+            width: 45px; /* Forzamos el ancho para que el flexbox no lo estire */
+            min-width: 45px; /* Evita que se encoja o se haga gigante */
             border-radius: 50%;
+            object-fit: cover; /* Si la imagen no es cuadrada perfecta, esto la encaja en el círculo sin deformarla */
         }
 
         .logo-text {
-            font-weight: bold;
+            font-family: 'Georgia', serif; /* Recuperamos tu tipografía elegante */
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-oscuro);
         }
-
+        /* ------------------------------ */
         .about-image img {
     max-width: 100%; /* No se sale de su contenedor */
     height: auto; /* Mantiene la proporción */
