@@ -593,6 +593,65 @@
     font-size: 1rem;
     line-height: 1.6;
 }
+
+        /* Contenedor y botones */
+.contenedor-reserva {
+  text-align: center;
+  margin-top: 30px;
+  font-family: sans-serif;
+}
+
+.btn-principal, .btn-confirmar {
+  background-color: #4F46E5; /* Color morado/azulado moderno */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-principal:hover, .btn-confirmar:hover {
+  background-color: #4338CA;
+  transform: scale(1.05);
+}
+
+/* Diseño del formulario */
+#caja-formulario {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.oculto {
+  display: none;
+}
+
+.campo {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #374151;
+}
+
+.campo input, .campo select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
     </style>
 </head>
 <body>
@@ -679,6 +738,35 @@
         </article>
 
     </div>
+<div class="contenedor-reserva">
+        <button id="btn-abrir-reserva" class="btn-principal">¡Reservar mi plaza!</button>
+
+        <div id="caja-formulario" class="oculto">
+            <h3>Completa tu reserva</h3>
+            <form id="form-reserva">
+            
+            <div class="campo">
+                <label for="nombre">Tu nombre o alias:</label>
+                <input type="text" id="nombre" placeholder="Ej: Álex" required>
+            </div>
+
+            <div class="campo">
+                <label for="quedada">¿A qué quedada quieres asistir?</label>
+                <select id="quedada" required>
+                    <option value="" disabled selected>Selecciona una opción...</option>
+                    <option value="boardgames">The Boardgames Meeting</option>
+                    <option value="spill-the-tea">Spill The Tea</option>
+                    <option value="lyrics">Lyrics & Chill</option>
+                    <option value="poets">The Poets Department</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-confirmar">Confirmar Reserva ✅</button>
+            </form>
+        </div>
+    </div>
+    
+    
 </section>
 
     <!-- Sección Exámenes Oficiales -->
