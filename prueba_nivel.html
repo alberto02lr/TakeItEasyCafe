@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Nivel - TakeItEasy Cafe</title>
+    <style>
+        :root {
+            --verde-oscuro: #1a4d2e;
+            --verde-claro: #2d6a4f;
+            --crema: #f5f1e8;
+            --blanco-roto: #faf8f3;
+            --marron: #6b5344;
+            --gris-oscuro: #3a3a3a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--blanco-roto);
+            color: var(--gris-oscuro);
+            line-height: 1.7;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 5%;
+            background-color: var(--crema);
+            border-bottom: 1px solid rgba(26, 77, 46, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--verde-oscuro);
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a,
+        .cta-button {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 600;
+            transition: color 0.25s ease, background-color 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .cta-button:hover {
+            color: var(--verde-oscuro);
+        }
+
+        .cta-button {
+            padding: 0.75rem 1.4rem;
+            border-radius: 999px;
+            background-color: var(--verde-oscuro);
+            color: var(--crema);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-header {
+            padding: 5rem 5% 2.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 77, 46, 0.9), rgba(45, 106, 79, 0.9)), url('backphoto.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--crema);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 2.5rem 5%;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--crema);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        section h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: var(--verde-oscuro);
+        }
+
+        section p {
+            margin-bottom: 1.25rem;
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+        }
+
+        .question strong {
+            display: inline-block;
+            margin-bottom: 0.6rem;
+        }
+
+        .options {
+            display: grid;
+            gap: 0.75rem;
+            margin-left: 0.75rem;
+        }
+
+        .options label {
+            display: block;
+            padding: 0.85rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(26, 77, 46, 0.15);
+            background-color: #fff;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .options input {
+            margin-right: 0.75rem;
+        }
+
+        .options label:hover {
+            border-color: var(--verde-claro);
+            background-color: #fbfbf9;
+        }
+
+        .listening-embed {
+            margin-top: 1rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .iframe-wrapper iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border: 0;
+        }
+
+        .result-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 14px;
+            border: 1px solid rgba(26, 77, 46, 0.08);
+        }
+
+        .result-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .result-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .result-card li {
+            margin-bottom: 0.65rem;
+        }
+
+        footer {
+            text-align: center;
+            margin: 2rem 0 3rem;
+            color: var(--marron);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 760px) {
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .page-header h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="Logo TakeItEasy Cafe" class="logo-img">
+            <span class="logo-text">TakeItEasy Cafe</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">Quiénes Somos</a></li>
+            <li><a href="index.html#services">Quedadas</a></li>
+            <li><a href="index.html#exams">Exámenes</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+        <a href="index.html" class="cta-button">Volver al Café</a>
+    </nav>
+
+    <header class="page-header">
+        <h1>Prueba de Nivel TakeItEasy Cafe</h1>
+        <p>Esta mini prueba te ayuda a identificar tu nivel de inglés en gramática y comprensión auditiva. Responde con calma y luego consulta tus resultados en la guía al final.</p>
+    </header>
+
+    <main class="content">
+        <section>
+            <h2>1. Gramática</h2>
+            <div class="question">
+                <strong>1. Elige la opción correcta:</strong>
+                <div class="options">
+                    <label><input type="radio" name="q1"> a) She go to the café every morning.</label>
+                    <label><input type="radio" name="q1"> b) She goes to the café every morning.</label>
+                    <label><input type="radio" name="q1"> c) She going to the café every morning.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <strong>2. Completa la frase con la forma correcta del verbo:</strong>
+                <p>I _____ (visit) the café twice this week.</p>
+                <div class="options">
+                    <label><input type="radio" name="q2"> a) visit</label>
+                    <label><input type="radio" name="q2"> b) visited</label>
+                    <label><input type="radio" name="q2"> c) have visited</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <strong>3. Elige la mejor opción:</strong>
+                <div class="options">
+                    <label><input type="radio" name="q3"> a) I am agree with you.</label>
+                    <label><input type="radio" name="q3"> b) I agree with you.</label>
+                    <label><input type="radio" name="q3"> c) I am agreeing with you.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <strong>4. ¿Cuál es la forma correcta?</strong>
+                <div class="options">
+                    <label><input type="radio" name="q4"> a) He don't like strong coffee.</label>
+                    <label><input type="radio" name="q4"> b) He doesn't like strong coffee.</label>
+                    <label><input type="radio" name="q4"> c) He isn't like strong coffee.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <strong>5. Elige la palabra correcta para completar:</strong>
+                <p>We talked _____ the new menu and the prices.</p>
+                <div class="options">
+                    <label><input type="radio" name="q5"> a) about</label>
+                    <label><input type="radio" name="q5"> b) on</label>
+                    <label><input type="radio" name="q5"> c) at</label>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Listening</h2>
+            <p>Escucha el audio corto y responde a las preguntas. Si usas el video en YouTube, activa subtítulos solo si necesitas confirmación; primero escucha con atención.</p>
+            <div class="listening-embed">
+                <div class="iframe-wrapper">
+                    <iframe src="https://www.youtube.com/embed/ZtL3QABqvZw" title="English listening practice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="question">
+                <strong>6. ¿A qué tipo de lugar cree el hablante que está yendo?</strong>
+            </div>
+            <div class="question">
+                <strong>7. Menciona uno de los productos que escucha en el audio.</strong>
+            </div>
+            <div class="question">
+                <strong>8. ¿Cómo describe el hablante el ambiente?</strong>
+            </div>
+            <p>Consejo: puedes reproducir el audio varias veces. Responde con palabras clave si no comprendes todo.</p>
+        </section>
+
+        <section class="result-card">
+            <h3>Guía de resultados</h3>
+            <ul>
+                <li><strong>4-5 aciertos en gramática:</strong> nivel intermedio (B1).</li>
+                <li><strong>2-3 aciertos en gramática:</strong> nivel básico intermedio (A2).</li>
+                <li><strong>0-1 aciertos en gramática:</strong> nivel inicial (A1).</li>
+            </ul>
+            <p>Para la parte de listening, si entendiste:</p>
+            <ul>
+                <li><strong>3 respuestas correctas:</strong> buen nivel de comprensión auditiva básica.</li>
+                <li><strong>1 o 2 respuestas correctas:</strong> práctica recomendada para mejorar foco en palabras clave.</li>
+                <li><strong>0 respuestas:</strong> repite el audio y escucha solo frases cortas primero.</li>
+            </ul>
+            <p>Si quieres, pregunta en nuestra próxima quedada cuál de las opciones te resultó más difícil. ¡Te ayudamos a mejorar juntos!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>TakeItEasy Cafe - Prueba de nivel diseñada para ayudarte a identificar tu punto de partida en inglés.</p>
+    </footer>
+</body>
+</html>
