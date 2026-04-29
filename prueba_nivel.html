@@ -360,19 +360,34 @@
             <p>Escucha el audio corto y responde a las preguntas. Si usas el video en YouTube, activa subtítulos solo si necesitas confirmación; primero escucha con atención.</p>
             <div class="listening-embed">
                 <div class="iframe-wrapper">
-                    <iframe src="https://www.youtube.com/embed/ZtL3QABqvZw" title="English listening practice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe src="https://youtu.be/dfwxaAidUBg?si=GXtDKag_eHkg4TiV" title="English listening practice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="question">
-                <strong>6. ¿A qué tipo de lugar cree el hablante que está yendo?</strong>
+                <strong>6. How did RAYE feel about sitting next to Anna Wintour at a fashion show?</strong>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="a"> a) She was disappointed that Anna Wintour didn't know much about modern music</label>
+                    <label><input type="radio" name="q6" value="b"> b) She was initially apprehensive but found the experience surprisingly pleasant</label>
+                    <label><input type="radio" name="q6" value="c"> c) She was confident because of her own background in the fashion world</label>
+                </div>
             </div>
             <div class="question">
-                <strong>7. Menciona uno de los productos que escucha en el audio.</strong>
+                <strong>7. What was RAYE's reaction to seeing Amy Winehouse's original lyrics in the studio?.</strong>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="a"> a) She felt a sense of profound awe and respect for the late artist</label>
+                    <label><input type="radio" name="q7" value="b"> b) She felt pressured by Mark Ronson to replicate Amy's songwriting style</label>
+                    <label><input type="radio" name="q7" value="c"> c) She was amused by the simple rhyming method Amy used</label>
+                </div>
             </div>
             <div class="question">
-                <strong>8. ¿Cómo describe el hablante el ambiente?</strong>
+                <strong>8. What does RAYE say about the effect of her song 'Where Is My Husband!' on her own life?</strong>
             </div>
-            <p>Consejo: puedes reproducir el audio varias veces. Responde con palabras clave si no comprendes todo.</p>
+            <div class="options">
+                    <label><input type="radio" name="q8" value="a"> a) It was successfully attracted many potential partners</label>
+                    <label><input type="radio" name="q8" value="b"> b) It has surprisingly resulted in several marriage proposals via social media</label>
+                    <label><input type="radio" name="q8" value="c"> c) It has ironically been more beneficial to other people's relationships that her own</label>
+                </div>
+            <p>Consejo: puedes reproducir el audio varias veces, aunque lo recomendable son 2. ¡Mucho ánimo! El listening es nivel C1.</p>
         </section>
 
         <section>
@@ -386,32 +401,13 @@
                     <label for="email">Correo electrónico</label>
                     <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
                 </div>
-                <div class="field-group">
-                    <label for="listening-notes">Respuestas de listening (6-8)</label>
-                    <textarea id="listening-notes" name="listening-notes" rows="4" placeholder="Escribe aquí tus respuestas de listening"></textarea>
-                </div>
                 <button type="submit" class="submit-button">Enviar y corregir</button>
                 <p id="form-error" class="error-text hidden">Por favor, completa el nombre y el correo electrónico.</p>
             </form>
         </section>
 
         <section id="feedback" class="result-card hidden"></section>
-
-        <section class="result-card">
-            <h3>Guía de resultados</h3>
-            <ul>
-                <li><strong>4-5 aciertos en gramática:</strong> nivel intermedio (B1).</li>
-                <li><strong>2-3 aciertos en gramática:</strong> nivel básico intermedio (A2).</li>
-                <li><strong>0-1 aciertos en gramática:</strong> nivel inicial (A1).</li>
-            </ul>
-            <p>Para la parte de listening, si entendiste:</p>
-            <ul>
-                <li><strong>3 respuestas correctas:</strong> buen nivel de comprensión auditiva básica.</li>
-                <li><strong>1 o 2 respuestas correctas:</strong> práctica recomendada para mejorar foco en palabras clave.</li>
-                <li><strong>0 respuestas:</strong> repite el audio y escucha solo frases cortas primero.</li>
-            </ul>
-            <p>Si quieres, pregunta en nuestra próxima quedada cuál de las opciones te resultó más difícil. ¡Te ayudamos a mejorar juntos!</p>
-        </section>
+        
     </main>
 
     <footer>
@@ -428,7 +424,10 @@
             q2: 'c',
             q3: 'b',
             q4: 'b',
-            q5: 'a'
+            q5: 'a',
+            q6: 'b',
+            q7: 'a',
+            q8: 'c',
         };
 
         const explanations = {
@@ -436,7 +435,10 @@
             q2: 'Usamos "have visited" porque hablamos de una acción en un periodo de tiempo que aún no ha terminado (esta semana).',
             q3: 'El verbo "agree" no se usa con el auxiliar "am" en esta estructura.',
             q4: 'Para he/she/it en presente simple, se usa "doesn\'t like".',
-            q5: 'La expresión correcta es "talk about" cuando se habla de un tema.'
+            q5: 'La expresión correcta es "talk about" cuando se habla de un tema.',
+            q6: 'She describes been extremely nervous and scared but was pleasantly surprised by how lovely Anna was.',
+            q7: 'She describes being shook to her core and pausing the session for 45 minutes just to stare at the paper.',
+            q8: 'She notes that her song has helped other peoples marriages, which she is happy about, but not her own situation.',
         };
 
         function getSelectedAnswer(questionName) {
